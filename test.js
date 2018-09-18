@@ -48,6 +48,7 @@ describe(('You are awesome, aren\'t you?'), () => {
     assert.equal(magicObj.__proto__, magicObj.prototype);
   });
 
+
   it('incrementor', () => {
     assert.equal(incrementor()()(), 3);
     assert.equal(incrementor()()()()(), 8);
@@ -58,6 +59,7 @@ describe(('You are awesome, aren\'t you?'), () => {
   it('asyncIncrementor', async () => {
     await asyncIncrementor();
     await asyncIncrementor();
+
     assert.equal(await asyncIncrementor(), 3);
 
     await Promise.all([
@@ -128,12 +130,11 @@ describe(('You are awesome, aren\'t you?'), () => {
       temp[i][i - 1] = {};
       temp[i][i] = {};
       temp[i][i + 1] = {};
-
       temp = temp[i][i];
     }
 
     const count1 = getDeepPropertiesCount(obj);
-    assert.equal(count1, 400)
+    assert.equal(count1, 400);
 
     for (let i = 0; i < 100; i++) {
       temp[i] = {};
